@@ -25,3 +25,5 @@ for (root, dirs, files) in os.walk(root_dir):
                             for k, v in conf_item_dict.items():
                                 py_file_all = py_file_all.replace(f'##{k}##',v)
                             file_write.write(py_file_all)
+
+                        
