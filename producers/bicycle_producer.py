@@ -17,7 +17,11 @@ class BicycleProducer():
                      'compression.type': 'lz4',
                      'acks': 'all',
                      'max.in.flight.requests.per.connection': 5,
-                     'enable.idempotence': True
+                     'enable.idempotence': True # 멱등성 보장
+                     # 멱등성 보장 조건:
+                     # 1. max.in.flight.requests.per.connection 5 이하
+                     # 2. retries를 0보다 크게 ( 기본값 21억 )
+                     # 3. acks를 all로 설정
                      }
         self.producer = Producer(self.conf)
         self._set_logger()
